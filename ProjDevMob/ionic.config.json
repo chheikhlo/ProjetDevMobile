@@ -1,0 +1,8 @@
+{
+  "name": "ProjDevMob",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

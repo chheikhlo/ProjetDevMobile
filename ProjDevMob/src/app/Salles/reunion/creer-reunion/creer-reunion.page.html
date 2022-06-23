@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ajouter Réunion
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (submit)="performForm(reunionForm.value)" #reunionForm='ngForm'>
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input type="text" required minlength="2" [(ngModel)]="meet.nom" name="nom" #nomReunion='ngModel'></ion-input>
+        <ion-text *ngIf="nomReunion.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="nomReunion.hasError('minlength')" color='danger'>Minimum 2 caractères</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea type="text" required minlength="2" [(ngModel)]="meet.description" name="description" #descriptionReunion='ngModel'></ion-textarea>
+        <ion-text *ngIf="descriptionReunion.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="descriptionReunion.hasError('minlength')" color='danger'>Minimum 2 caractères</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Heure Début</ion-label>
+        <ion-input type="number" required minlength="2" [(ngModel)]="meet.heureReunion" name="heureReunion" #heureReunionReunion='ngModel'></ion-input>
+        <ion-text *ngIf="heureReunionReunion.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nom Salle</ion-label>
+        <ion-input type="text" required [(ngModel)]="meet.nomSalles" name="nomSalles" #salleReunion='ngModel'></ion-input>
+        <ion-text *ngIf="salleReunion.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit">Ajouter</ion-button>
+  </form>
+</ion-content>

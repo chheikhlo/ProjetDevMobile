@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ajouter Salle
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (submit)="performForm(salleForm.value)" #salleForm='ngForm'>
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input type="text" required minlength="2" [(ngModel)]="salle.nom" name="nom" #nomSalle='ngModel'></ion-input>
+        <ion-text *ngIf="nomSalle.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="nomSalle.hasError('minlength')" color='danger'>Minimum 2 caractères</ion-text>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit">Ajouter</ion-button>
+  </form>
+</ion-content>

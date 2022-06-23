@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reunions",
+  "info": {
+    "name": "Reunion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "heureReunion": {
+      "type": "integer"
+    },
+    "nomSalles": {
+      "model": "salle",
+      "via": "reunions"
+    }
+  }
+}

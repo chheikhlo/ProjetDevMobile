@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ajouter Membre
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form (submit)="performForm(membreForm.value)" #membreForm='ngForm'>
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom d'utilisateur</ion-label>
+        <ion-input type="text" required minlength="2" [(ngModel)]="membre.username" name="username" #usernameMembre='ngModel'></ion-input>
+        <ion-text *ngIf="usernameMembre.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="usernameMembre.hasError('minlength')" color='danger'>Minimum 2 caractères</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Adress Email</ion-label>
+        <ion-input type="mail" required [(ngModel)]="membre.email" name="email" #emailMembre='ngModel'></ion-input>
+        <ion-text *ngIf="emailMembre.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="emailMembre.hasError('minlength')" color='danger'>Verifie ton adress mail svp</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Mot De Pass</ion-label>
+        <ion-input type="text" required minlength="2" [(ngModel)]="membre.password" name="password" #passwordMembre='ngModel'></ion-input>
+        <ion-text *ngIf="passwordMembre.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="passwordMembre.hasError('minlength')" color='danger'>Minimum 2 caractères</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Direction</ion-label>
+        <ion-input type="text" required minlength="2" [(ngModel)]="membre.direction" name="direction" #directionMembre='ngModel'></ion-input>
+        <ion-text *ngIf="directionMembre.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="directionMembre.hasError('minlength')" color='danger'>Minimum 2 caractères</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Role</ion-label>
+        <ion-input type="text" required minlength="2" [(ngModel)]="membre.roles" name="roles" #roleMembre='ngModel'></ion-input>
+        <ion-text *ngIf="roleMembre.errors?.required" color='danger'>Champ obligatoire!</ion-text>
+        <ion-text *ngIf="roleMembre.hasError('minlength')" color='danger'>Minimum 2 caractères</ion-text>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit">Ajouter</ion-button>
+  </form>
+</ion-content>

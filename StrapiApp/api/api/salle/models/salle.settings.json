@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "salles",
+  "info": {
+    "name": "Salle"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "reunions": {
+      "via": "nomSalles",
+      "collection": "reunion"
+    }
+  }
+}
